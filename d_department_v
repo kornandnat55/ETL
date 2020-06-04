@@ -1,5 +1,5 @@
 create or replace view d_department_ora11_v
-as select d.department_id as department_cd, d.department_name as department_name, nvl2(l.street_address, l.street_address, 'NA') as street_address, nvl2(l.postal_code, l.postal_code, 'NA') as postal_code, l.city as city, nvl2(l.state_province, l.state_province, 'NA') as state_province, nvl2(c.country_name, c.country_name, 'NA') as country_name, nvl2(r.region_name, r.region_name, 'NA') as region_name_en,
+as select d.department_id as department_cd, d.department_name as department_name, nvl2(substr(l.street_address,1,30), substr(l.street_address,1,30), 'NA') as street_address, nvl2(l.postal_code, l.postal_code, 'NA') as postal_code, l.city as city, nvl2(l.state_province, l.state_province, 'NA') as state_province, nvl2(c.country_name, c.country_name, 'NA') as country_name, nvl2(r.region_name, r.region_name, 'NA') as region_name_en,
 nvl2(r.region_name, case when r.region_name = 'Europe' then 'ยุโรป'
                     when r.region_name = 'Americas' then 'อเมริกา'
                     when r.region_name = 'Asia' then 'เอเชีย'
